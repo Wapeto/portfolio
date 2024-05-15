@@ -4,6 +4,7 @@ import cors from 'cors';
 import sqlite3 from 'sqlite3';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import process from 'process';
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -24,7 +25,6 @@ app.get('/api/get-projects', (req, res) => {
     const { type, state } = req.query;
     let query = "";
 
-    // Convert query parameters to integers or handle them appropriately
     const stateNum = parseInt(state, 10);
 
     if (type === 'featured') {
@@ -54,3 +54,11 @@ app.get('/api/get-projects', (req, res) => {
 export default (req, res) => {
     app(req, res);
 };
+
+// Start the server locally for development
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+}

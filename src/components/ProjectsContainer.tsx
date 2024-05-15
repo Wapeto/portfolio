@@ -17,7 +17,7 @@ const ProjectsContainer: React.FC<ProjectsContainerProps> = ({type}) => {
     }, [sliderState[type]]);
 
     const fetchProjects = async () => {
-        const response = await fetch(`http://localhost:3000/get-projects?type=${type}&state=${sliderState[type]}`);
+        const response = await fetch(`http://localhost:3000/api/get-projects?type=${type}&state=${sliderState[type]}`);
         const data = await response.json();
         setProjects(data);
     };
