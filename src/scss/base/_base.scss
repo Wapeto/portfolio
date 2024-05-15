@@ -1,0 +1,25 @@
+@use "../utils/variables";
+
+body {
+  font-family: variables.$base-font;
+  font-size: variables.$font-size;
+  line-height: variables.$line-height;
+  color: variables.$text-color;
+  background-color: variables.$background-color;
+}
+
+h1 {
+  font-family: variables.$title-font;
+  font-size: 5rem;
+  color: variables.$accent-color;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-family: variables.$base-font;
+}
+
+strong {
+  font-weight: 600;
+}

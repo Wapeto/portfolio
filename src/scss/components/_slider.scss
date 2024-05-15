@@ -1,0 +1,21 @@
+.slider {
+  display: flex;
+  border: 2px solid white;
+  border-radius: 2rem;
+  width: fit-content;
+
+  .slider-part {
+    padding: 1rem 2rem;
+    border-radius: 1.8rem;
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .active {
+    background-color: white;
+    color: black;
+  }
+}

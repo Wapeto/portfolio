@@ -1,0 +1,80 @@
+@use "../utils/variables" as v;
+
+.title-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    position: fixed;
+    margin-top: 24rem;
+    z-index: 1;
+    width: 80%;
+    text-align: center;
+    font-size: 1rem;
+    animation: fade-in 2s forwards;
+    
+    @media (min-width: v.$breakpoint-medium) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: v.$breakpoint-large) {
+      font-size: 2rem;
+    }
+  }
+
+  animation: fade-out 1s linear forwards;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -1s);
+}
+
+h1.title {
+  position: fixed;
+  z-index: 1;
+  width: 22rem; //modified
+  font-family: v.$title-font;
+  font-size: 4.5rem; //modified
+  color: v.$text-color;
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+  letter-spacing: 1rem;
+
+  overflow: hidden;
+  padding: 0.25rem;
+  border-right: 0.1em solid v.$text-color;
+
+  animation: typing 1.5s steps(15, end), blink-caret 0.75s step-end infinite;
+
+  @media (min-width: v.$breakpoint-medium) {
+    width: 32rem;
+    font-size: 6rem;
+  }
+
+  @media (min-width: v.$breakpoint-xl) {
+    width: 36rem;
+    font-size: 8rem;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 28rem;
+    @media (min-width: v.$breakpoint-large) {
+      width: 36rem;
+
+    }
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: v.$text-color;
+  }
+}
