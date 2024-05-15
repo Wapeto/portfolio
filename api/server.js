@@ -2,9 +2,14 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import sqlite3 from 'sqlite3';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
 const app = express();
-const db = new sqlite3.Database('./database.sqlite', sqlite3.OPEN_READWRITE, (err) => {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const dbPath = join(__dirname, '../backend/database.sqlite');
+const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
         console.error('Error opening database', err.message);
     } else {
@@ -15,7 +20,7 @@ const db = new sqlite3.Database('./database.sqlite', sqlite3.OPEN_READWRITE, (er
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/get-projects', (req, res) => {
+app.get('/api/get-projects', (req, res) => {
     const { type, state } = req.query;
     let query = "";
 
@@ -45,7 +50,7 @@ app.get('/get-projects', (req, res) => {
     }
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+// Export the app as a serverless function
+export default (req, res) => {
+    app(req, res);
+};
