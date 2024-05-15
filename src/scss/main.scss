@@ -1,0 +1,22 @@
+@use "./utils/variables" as v;
+@use "./utils/animations";
+
+@use "./base/reset";
+@use "./base/base";
+
+@use "./pages/home";
+@use "./pages/contact";
+
+body {
+  padding: 1.5rem;
+  overflow-x: hidden;
+
+  @media (min-width: v.$breakpoint-large) {
+    padding: 2rem;
+
+  }
+  @media (min-width: v.$breakpoint-xl) {
+    padding: 4rem;
+
+  }
+}
