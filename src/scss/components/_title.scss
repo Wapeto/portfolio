@@ -8,12 +8,17 @@
 
   h2 {
     position: fixed;
-    margin-top: 24rem;
+    margin-top: 16rem;
     z-index: 1;
-    width: 80%;
+    width: 90%;
     text-align: center;
     font-size: 1rem;
     animation: fade-in 2s forwards;
+
+    @media (min-width: v.$breakpoint-small) {
+      margin-top: 24rem;
+      width: 80%;
+    }
     
     @media (min-width: v.$breakpoint-medium) {
       font-size: 1.5rem;
@@ -34,7 +39,7 @@ h1.title {
   width: 90%;
   max-width: 22rem; //modified
   font-family: v.$title-font;
-  font-size: 4.5rem; //modified
+  font-size: 3.5rem; //modified
   color: v.$text-color;
   margin-top: 8rem;
   margin-bottom: 4rem;
@@ -46,13 +51,17 @@ h1.title {
 
   animation: typing 1.5s steps(15, end), blink-caret 0.75s step-end infinite;
 
+  @media (min-width: v.$breakpoint-small) {
+    font-size: 4.5rem;
+  }
+
   @media (min-width: v.$breakpoint-medium) {
-    width: 32rem;
+    max-width: 32rem;
     font-size: 6rem;
   }
 
   @media (min-width: v.$breakpoint-xl) {
-    width: 36rem;
+    max-width: 36rem;
     font-size: 8rem;
   }
 }

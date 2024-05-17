@@ -1,7 +1,7 @@
 @use "../utils/variables" as v;
 
 .card {
-  flex: 0 0 18rem;
+  flex: 0 0 16rem;
   margin: 0 1rem;
   height: 24rem;
   border-radius: 1.8rem;
@@ -15,6 +15,10 @@
   cursor: pointer;
   background-color: v.$card-color;
   transition: transform 0.5s ease-in-out;
+
+  @media (min-width: v.$breakpoint-small) {
+    flex: 0 0 18rem;
+  }
 
   @media (min-width: v.$breakpoint-medium) {
     flex: 0 0 22rem;
@@ -38,9 +42,13 @@
     padding: 0 1.5rem;
 
     h3 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin-top: 2rem;
       color: black;
+
+      @media (min-width: v.$breakpoint-small) {
+        font-size: 2rem;
+      }
     }
 
     p {
@@ -198,17 +206,25 @@
         background-color: darken(v.$card-color, 5%);
 
         h3 {
-          font-size: 2.5rem;
+          font-size: 1.8rem;
           color: black;
           border-bottom: 0.1rem solid v.$accent-color;
+
+          @media (min-width: v.$breakpoint-small) {
+            font-size: 2.5rem;
+          }
         }
 
         p {
-          font-size: 1.5rem;
+          font-size: 1rem;
           font-weight: 300;
           color: black;
           overflow: hidden;
           text-overflow: ellipsis;
+
+          @media (min-width: v.$breakpoint-small) {
+            font-size: 1.5rem;
+          }
         }
 
         .unstarted-unfinished {
@@ -252,15 +268,23 @@
         }
 
         h4 {
-          font-size: 2.5rem;
+          font-size: 1.8rem;
           color: black;
           border-bottom: 0.1rem solid v.$accent-color;
+
+          @media (min-width: v.$breakpoint-small) {
+            font-size: 2.5rem;
+          }
         }
 
         p {
-          font-size: 1.5rem;
+          font-size: 1rem;
           font-weight: 300;
           color: black;
+
+          @media (min-width: v.$breakpoint-small) {
+            font-size: 1.5rem;
+          }
         }
       }
     }
@@ -292,10 +316,10 @@
     left: auto;
   }
 
-    @media (min-width: v.$breakpoint-large) {
-        top: 3rem;
-        right: 3rem;
-    }
+  @media (min-width: v.$breakpoint-large) {
+    top: 3rem;
+    right: 3rem;
+  }
 
   &.button-enter {
     opacity: 0;

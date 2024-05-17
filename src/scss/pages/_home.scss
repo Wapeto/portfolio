@@ -18,7 +18,7 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  margin-top: 28rem;
+  margin-top: 24rem;
   padding: 0 5%;
   opacity: 0;
   background-color: v.$background-color;
@@ -27,13 +27,17 @@
 
   animation: fade-in 2s forwards;
 
+  @media (min-width: v.$breakpoint-small) {
+    margin-top: 28rem;
+  }
+
   @media (min-width: v.$breakpoint-medium) {
     margin-top: 32rem;
   }
-
-  @media (min-width: v.$breakpoint-xl) {
-    margin-top: 30rem;
-  }
+  //
+  //@media (min-width: v.$breakpoint-xl) {
+  //  margin-top: 30rem;
+  //}
 
   .description-container {
     display: flex;
@@ -51,12 +55,16 @@
     }
 
     .description {
-      font-size: 1.1rem;
+      font-size: .9rem;
       text-align: justify;
       column-gap: 20px;
       width: 80%;
       column-count: 1;
       padding: 10px;
+
+      @media (min-width: v.$breakpoint-small) {
+        font-size: 1.1rem;
+      }
 
       @media (min-width: v.$breakpoint-large) {
         column-count: 2;
@@ -65,7 +73,6 @@
       @media (min-width: v.$breakpoint-xl) {
         column-count: 3;
         font-size: 1.3rem;
-
       }
     }
   }
