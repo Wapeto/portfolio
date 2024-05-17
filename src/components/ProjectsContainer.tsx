@@ -17,7 +17,7 @@ const ProjectsContainer: React.FC<ProjectsContainerProps> = ({type}) => {
     }, [sliderState[type]]);
 
     const fetchProjects = async () => {
-        const response = await fetch(`/api/get-projects?type=${type}&state=${sliderState[type]}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/get-projects?type=${type}&state=${sliderState[type]}`);
         const data = await response.json();
         setProjects(data);
     };
