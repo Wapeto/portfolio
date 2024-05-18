@@ -28,7 +28,7 @@
   animation: fade-in 2s forwards;
 
   @media (min-width: v.$breakpoint-small) {
-    margin-top: 28rem;
+    margin-top: 24rem;
   }
 
   @media (min-width: v.$breakpoint-medium) {
@@ -111,7 +111,7 @@
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
-      height: 30rem;
+      height: 20rem;
       width: 100%;
       margin-top: 2rem;
 
@@ -119,6 +119,10 @@
 
       overflow-x: auto;
       overflow-y: hidden;
+
+      @media (min-width: v.$breakpoint-small) {
+        height: 30rem;
+      }
 
       @media (min-width: v.$breakpoint-medium) {
         height: 39rem;

@@ -3,9 +3,9 @@
 .card {
   flex: 0 0 16rem;
   margin: 0 1rem;
-  height: 24rem;
+  height: 18rem;
   border-radius: 1.8rem;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   overflow: hidden;
 
   display: flex;
@@ -18,6 +18,8 @@
 
   @media (min-width: v.$breakpoint-small) {
     flex: 0 0 18rem;
+    height: 20rem;
+    padding: 2rem 1rem;
   }
 
   @media (min-width: v.$breakpoint-medium) {
@@ -43,6 +45,9 @@
 
     h3 {
       font-size: 1.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       margin-top: 2rem;
       color: black;
 
@@ -52,7 +57,7 @@
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 0;
       font-weight: 300;
       margin-top: 1rem;
       color: black;
@@ -64,6 +69,7 @@
       height: auto;
 
       @media (min-width: v.$breakpoint-medium) {
+        font-size: 1.2rem;
         -webkit-line-clamp: 2;
       }
       @media (min-width: v.$breakpoint-xl) {
@@ -76,9 +82,13 @@
   .card-image-container {
     position: relative;
     width: 100%;
-    height: 60%;
+    height: 70%;
     flex-shrink: 0;
     flex-grow: 0;
+
+    @media (min-width: v.$breakpoint-medium) {
+      height: 60%;
+    }
 
     .card-image {
       width: 100%;
@@ -175,6 +185,10 @@
 
     .card-image {
       max-height: 20rem;
+
+      @media (max-width: v.$breakpoint-small) {
+        height: 18rem;
+      }
     }
 
     .data-container {
@@ -182,10 +196,16 @@
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      gap: 1rem;
+      gap: .5rem;
+
+      @media (min-width: v.$breakpoint-small) {
+        gap: 1rem;
+
+      }
 
       @media (min-width: v.$breakpoint-large) {
         flex-direction: row;
+        padding: 0 1rem;
       }
 
       .info-section {
@@ -194,24 +214,42 @@
         align-items: start;
         gap: 1rem;
         margin-top: 2rem;
-        padding: 2rem;
+        padding: 1rem;
         border-radius: 2rem;
         width: 90%;
 
-        @media (min-width: v.$breakpoint-large) {
+        @media (min-width: v.$breakpoint-small) {
+          padding: 2rem;
 
-          width: 30%;
+        }
+
+        @media (min-width: v.$breakpoint-large) {
+          flex: 1 1 30%;
         }
 
         background-color: darken(v.$card-color, 5%);
 
         h3 {
-          font-size: 1.8rem;
+          width: 100%;
+          text-align: center;
+          font-size: 1.5rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           color: black;
           border-bottom: 0.1rem solid v.$accent-color;
 
           @media (min-width: v.$breakpoint-small) {
-            font-size: 2.5rem;
+            font-size: 2rem;
+          }
+
+          @media (min-width: v.$breakpoint-medium) {
+            text-align: left;
+          }
+
+          @media (min-width: v.$breakpoint-large) {
+            font-size: 1.8rem;
+            font-weight: 500;
           }
         }
 
@@ -221,6 +259,7 @@
           color: black;
           overflow: hidden;
           text-overflow: ellipsis;
+          white-space: nowrap;
 
           @media (min-width: v.$breakpoint-small) {
             font-size: 1.5rem;
@@ -275,6 +314,10 @@
           @media (min-width: v.$breakpoint-small) {
             font-size: 2.5rem;
           }
+
+          @media (min-width: v.$breakpoint-large) {
+            font-size: 2rem;
+          }
         }
 
         p {
@@ -284,6 +327,10 @@
 
           @media (min-width: v.$breakpoint-small) {
             font-size: 1.5rem;
+          }
+
+          @media (min-width: v.$breakpoint-large) {
+            font-size: 1.2rem;
           }
         }
       }
