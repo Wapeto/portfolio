@@ -18,14 +18,14 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  margin-top: 24rem;
+  margin-top: 22rem;
   padding: 0 5%;
   opacity: 0;
   background-color: v.$background-color;
   z-index: 2;
 
 
-  animation: fade-in 2s forwards;
+  animation: fade-in 1.5s forwards;
 
   @media (min-width: v.$breakpoint-small) {
     margin-top: 24rem;
@@ -34,10 +34,6 @@
   @media (min-width: v.$breakpoint-medium) {
     margin-top: 32rem;
   }
-  //
-  //@media (min-width: v.$breakpoint-xl) {
-  //  margin-top: 30rem;
-  //}
 
   .description-container {
     display: flex;

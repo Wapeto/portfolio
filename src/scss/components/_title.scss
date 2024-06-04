@@ -1,4 +1,5 @@
 @use "../utils/variables" as v;
+@use "../utils/mixins" as m;
 
 .title-container {
   width: 100%;
@@ -13,7 +14,7 @@
     width: 90%;
     text-align: center;
     font-size: 1rem;
-    animation: fade-in 2s forwards;
+    animation: fade-in 1.2s forwards;
 
     @media (min-width: v.$breakpoint-small) {
       font-size: 1.2rem;
@@ -39,47 +40,50 @@ h1.title {
   position: fixed;
   z-index: 1;
   width: 90%;
-  max-width: 22rem; //modified
+  max-width: 22rem;
   font-family: v.$title-font;
-  font-size: 3.5rem; //modified
+  font-size: 3rem;
   color: v.$text-color;
   margin-top: 8rem;
   margin-bottom: 4rem;
-  letter-spacing: 1rem;
+  letter-spacing: .6rem;
+  font-weight: bold;
 
   overflow: hidden;
   padding: 0.25rem;
   border-right: 0.1em solid v.$text-color;
-
-  animation: typing 1.5s steps(15, end), blink-caret 0.75s step-end infinite;
+  @include m.typing-animation(22rem);
+  animation: typing 1s steps(7, end), blink-caret 0.75s step-end infinite;
 
   @media (min-width: v.$breakpoint-small) {
-    font-size: 4.5rem;
+    @include m.typing-animation(24rem);
+    max-width: 24rem;
+    font-size: 4rem;
+    letter-spacing: .8rem;
   }
 
   @media (min-width: v.$breakpoint-medium) {
+    @include m.typing-animation(32rem);
     max-width: 32rem;
     font-size: 6rem;
   }
 
   @media (min-width: v.$breakpoint-xl) {
-    max-width: 36rem;
+    @include m.typing-animation(42rem);
+    max-width: 42rem;
     font-size: 8rem;
   }
 }
 
-@keyframes typing {
-  from {
-    width: 0;
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
   }
-  to {
-    width: 28rem;
-    @media (min-width: v.$breakpoint-large) {
-      width: 36rem;
-
-    }
+  50% {
+    border-color: v.$text-color;
   }
 }
+
 
 @keyframes blink-caret {
   from,
