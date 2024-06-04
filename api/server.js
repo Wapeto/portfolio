@@ -9,7 +9,9 @@ import nodemailer from "nodemailer";
 import dotenv from 'dotenv';
 
 
-dotenv.config({ path: '../.env' });
+if (process.env.NODE_ENV !== 'production') {
+    dotenv.config({ path: '../.env' });
+}
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
