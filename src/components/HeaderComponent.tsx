@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const HeaderComponent: React.FC = () => (
     <header>
@@ -8,7 +9,7 @@ const HeaderComponent: React.FC = () => (
                 <option value="fr">FR</option>
             </select>
         </form>
-        <a href={"#"}>Contact me</a>
+        <Link to={"contact/"}> Contact </Link>
     </header>
 );
 

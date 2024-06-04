@@ -5,6 +5,11 @@ import sqlite3 from 'sqlite3';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import process from 'process';
+import nodemailer from "nodemailer";
+import dotenv from 'dotenv';
+
+
+dotenv.config({ path: '../.env' });
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -50,6 +55,40 @@ app.get('/api/get-projects', (req, res) => {
     }
 });
 
+
+app.post('/api/send-email', async (req, res) => {
+    const { name, email, message } = req.body;
+
+    let pass = process.env.EMAIL_PASS;
+    console.log("pass: ", pass);
+
+    // Create a transporter
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'dupetopetoman@gmail.com',
+            pass: pass
+        }
+    });
+
+    // Set up email data
+    let mailOptions = {
+        from: 'dupetopetoman@gmail.com',
+        to: 'wapetoglock@gmail.com',
+        subject: 'New contact email from wapeto.net',
+        text: `Name: ${name}\nEmail: ${email}\nMessage:\n ${message}`,
+    };
+
+    // Send the email
+    try {
+        await transporter.sendMail(mailOptions);
+        console.log(`Received form submission: ${name} - ${email} - ${message}`);
+        res.json({ message: 'Form data received and email sent' });
+    } catch (error) {
+        console.error(`Error occurred while sending email: ${error}`);
+        res.status(500).json({ message: 'Error occurred while sending email' });
+    }
+});
 // Export the app as a serverless function
 export default (req, res) => {
     app(req, res);
