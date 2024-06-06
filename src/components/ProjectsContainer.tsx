@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useCallback} from 'react';
-import {SliderState, useSlider} from './SliderContext';
+import {SliderState, useSlider} from '../contexts/SliderContext.tsx';
 import ProjectCardComponent from "./ProjectCardComponent";
 import {Project} from "../types";
 
@@ -31,7 +31,9 @@ const ProjectsContainer: React.FC<ProjectsContainerProps> = ({type}) => {
     }, [type, sliderState]);
 
     useEffect(() => {
-        fetchProjects();
+        fetchProjects().then(() => {
+            // console.log('Projects fetched.');
+        });
     }, [fetchProjects]);
 
     return (

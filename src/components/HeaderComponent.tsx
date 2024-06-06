@@ -6,10 +6,13 @@ const HeaderComponent: React.FC = () => (
         <form name="lang" method="get">
             <select name="lang" id="lang">
                 <option value="en">EN</option>
-                <option value="fr">FR</option>
+                {/*<option value="fr">FR</option>*/}
             </select>
         </form>
-        <Link to={"contact/"}> Contact </Link>
+        <Link to={"contact/"}>
+            Contact
+            <span className="bottom-border"></span>
+        </Link>
     </header>
 );
 

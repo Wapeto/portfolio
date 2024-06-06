@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import OverlayedButton from "../components/buttons/OverlayedButton.tsx";
+import SVGButton from "../components/buttons/SVGButton.tsx";
+import ArrowLeftIcon from "../assets/icons/ArrowLeftIcon.tsx";
 
 function ContactPage() {
     const [name, setName] = useState('');
@@ -24,6 +27,9 @@ function ContactPage() {
 
     return (
         <div id={"contact-page"}>
+            <div className="header">
+                <SVGButton text={"Home"} SvgIcon={ArrowLeftIcon} to={"/"} className={"home-button"}/>
+            </div>
             <h1>Contact me</h1>
             <div className={"form-container"}>
                 <form onSubmit={handleSubmit}>
@@ -33,10 +39,7 @@ function ContactPage() {
                            required/>
                     <textarea value={message} onChange={e => setMessage(e.target.value)} placeholder="Message"
                               required/>
-                    <div className={"send-button"}>
-                        <button type="submit">Send</button>
-                        <div className={"overlay"}></div>
-                    </div>
+                    <OverlayedButton text={"Send"} className={"send-button"} type={"submit"}/>
                 </form>
             </div>
         </div>
