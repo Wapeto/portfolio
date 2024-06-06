@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Project} from '../types';
 import {IMAGE_PATH} from "../constants";
 import CloseButton from "./buttons/CloseButton.tsx";
+import NoImageIcon from "../assets/icons/NoImageIcon.tsx";
 
 
 interface ProjectCardComponentProps {
@@ -33,8 +34,15 @@ const ProjectCardComponent: React.FC<ProjectCardComponentProps> = ({project}) =>
         <>
             <div className={`card ${expanded ? 'opened' : ''}`} onClick={!expanded ? handleToggle : undefined}>
                 <div className="card-image-container">
-                    <img src={`${IMAGE_PATH}/${project.image || 'default-image.png'}`} alt={project.title}
-                         className="card-image"/>
+                    {project.image ? (
+                        <img src={`${IMAGE_PATH}/${project.image + ".png" || NoImageIcon}`} alt={project.title}
+                             className="card-image"/>
+                    ) : (
+                        <div className="no-image-icon">
+                            <NoImageIcon/>
+                        </div>
+
+                    )}
                     <a href={project.link} target="_blank" onClick={e => e.stopPropagation()}>Visit Website
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.78 23.91">
                             <polyline points="1.5 1 11.78 12.1 1 22.91" fill="none" stroke="currentColor"
