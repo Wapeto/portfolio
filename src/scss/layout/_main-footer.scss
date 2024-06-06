@@ -25,39 +25,7 @@ footer {
     }
 
     .contact-button {
-      position: relative;
       margin-bottom: 8rem;
-
-      button {
-        font-size: 1.6rem;
-        font-weight: 200;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        border: 1px solid #e5e5e5;
-        color: v.$text-color;
-        cursor: pointer;
-      }
-
-      .overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        transition: 0.5s ease;
-        z-index: -1;
-        overflow: hidden;
-        border-radius: 0.5rem;
-      }
-
-      &:hover button {
-        color: black;
-      }
-
-      &:hover .overlay {
-        background-color: #e5e5e5;
-        width: 100%;
-      }
     }
   }
 }

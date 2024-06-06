@@ -1,0 +1,10 @@
+@mixin typing-animation($width) {
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: $width;
+    }
+  }
+}

@@ -1,7 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {CSSTransition} from 'react-transition-group';
+import React, {useEffect, useState} from 'react';
 import {Project} from '../types';
 import {IMAGE_PATH} from "../constants";
+import CloseButton from "./buttons/CloseButton.tsx";
 
 
 interface ProjectCardComponentProps {
@@ -10,7 +10,6 @@ interface ProjectCardComponentProps {
 
 const ProjectCardComponent: React.FC<ProjectCardComponentProps> = ({project}) => {
     const [expanded, setExpanded] = useState(false);
-    const nodeRef = useRef(null);
 
     const handleToggle = () => {
         if (!expanded) {
@@ -71,27 +70,18 @@ const ProjectCardComponent: React.FC<ProjectCardComponentProps> = ({project}) =>
             </div>
 
             {/*Show the close button as a sibling when the card is opened*/}
-            <CSSTransition
-                in={expanded}
-                timeout={500}
-                classNames="button"
-                unmountOnExit
-                nodeRef={nodeRef}
-                // onEnter={() => console.log('Button enter')}
-                // onExited={() => console.log('Button exited')}
-            >
-                <button ref={nodeRef} className="close-button" onClick={(e) => {
-                    e.stopPropagation();
-                    setExpanded(false);
-                }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
-                        <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
-                           strokeWidth="3">
-                            <path d="M1 1l20 20M1 21l20-20"/>
-                        </g>
-                    </svg>
-                </button>
-            </CSSTransition>
+            {/*<button ref={nodeRef} className="close-button" onClick={(e) => {*/}
+            {/*    e.stopPropagation();*/}
+            {/*    setExpanded(false);*/}
+            {/*}}>*/}
+            {/*    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">*/}
+            {/*        <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"*/}
+            {/*           strokeWidth="3">*/}
+            {/*            <path d="M1 1l20 20M1 21l20-20"/>*/}
+            {/*        </g>*/}
+            {/*    </svg>*/}
+            {/*</button>*/}
+            <CloseButton expanded={expanded} setExpanded={setExpanded}/>
         </>
     );
 };

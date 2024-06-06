@@ -10,6 +10,7 @@
   align-items: center;
   height: 100vh;
   background-color: v.$background-color;
+  padding-bottom: 3vh;
 }
 
 
@@ -18,14 +19,14 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  margin-top: 24rem;
+  margin-top: 22rem;
   padding: 0 5%;
   opacity: 0;
   background-color: v.$background-color;
   z-index: 2;
 
 
-  animation: fade-in 2s forwards;
+  animation: fade-in 1.5s forwards;
 
   @media (min-width: v.$breakpoint-small) {
     margin-top: 24rem;
@@ -34,10 +35,6 @@
   @media (min-width: v.$breakpoint-medium) {
     margin-top: 32rem;
   }
-  //
-  //@media (min-width: v.$breakpoint-xl) {
-  //  margin-top: 30rem;
-  //}
 
   .description-container {
     display: flex;
@@ -157,15 +154,36 @@ header {
   flex-direction: row;
 
   justify-content: end;
+  align-items: center;
   gap: 2rem;
   height: 2rem;
 
-  & a {
+  a {
+    display: flex;
+    padding-top: .5rem;
+    flex-direction: column;
+    align-items: center;
+    color: v.$text-color;
+    font-size: 1.2rem;
     transition: all 0.15s ease-in;
 
+    .bottom-border {
+      display: block;
+      margin-top: .2rem;
+      height: 1px;
+      width: 0;
+      //opacity: 0;
+      transition: 0.3s ease-in-out;
+      border-bottom: 1px solid white;
+    }
+
     &:hover {
-      border-bottom: 2px solid white;
-      scale: 1.05;
+      transform: translateY(-0.2rem);
+
+      .bottom-border {
+        //opacity: 1;
+        width: 110%;
+      }
     }
   }
 
@@ -174,8 +192,8 @@ header {
     color: white;
     border: none;
     font-size: .9rem;
-    padding: 0 0.5rem 0.5rem 0.5rem;
-    border-bottom: 1px solid white;
+    padding: 0.5rem;
+    border-bottom: 1px solid v.$text-color;
     transition: transform 0.3s ease-in-out;
 
     &:focus {

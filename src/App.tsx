@@ -2,8 +2,9 @@ import './scss/main.scss';
 import TitleComponent from './components/TitleComponent';
 import SliderComponent from "./components/SliderComponent.tsx";
 import HeaderComponent from "./components/HeaderComponent.tsx";
-import {SliderProvider} from "./components/SliderContext.tsx";
+import {SliderProvider} from "./contexts/SliderContext.tsx";
 import ProjectsContainer from "./components/ProjectsContainer.tsx";
+import OverlayedButton from "./components/buttons/OverlayedButton.tsx";
 
 function App() {
 
@@ -42,10 +43,7 @@ function App() {
                     <div className="contact-container">
                         <h3>Like what I do ?</h3>
                         <p>I can create <strong>your</strong> website !</p>
-                        <div className="contact-button">
-                            <button>Contact me</button>
-                            <div className="overlay"></div>
-                        </div>
+                        <OverlayedButton text={"Contact me"} className={"contact-button"} to={"contact/"}/>
                     </div>
                 </div>
             </footer>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSlider, SliderState } from './SliderContext';
+import { useSlider, SliderState } from '../contexts/SliderContext.tsx';
 
 interface SliderComponentProps {
     stateA: string;
