@@ -36,19 +36,21 @@ const ProjectCardComponent: React.FC<ProjectCardComponentProps> = ({project}) =>
                 <div className="card-image-container">
                     {project.image ? (
                         <img src={`${IMAGE_PATH}/${project.image + ".png" || NoImageIcon}`} alt={project.title}
-                             className="card-image"/>
+                             className={`card-image ${project.link ? "linked" : ""}`}/>
                     ) : (
                         <div className="no-image-icon">
                             <NoImageIcon/>
                         </div>
 
                     )}
+                    {project.link ? (
                     <a href={project.link} target="_blank" onClick={e => e.stopPropagation()}>Visit Website
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.78 23.91">
                             <polyline points="1.5 1 11.78 12.1 1 22.91" fill="none" stroke="currentColor"
                                       strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
                         </svg>
                     </a>
+                    ) : null}
                 </div>
                 {/* If the card is opened show the data-container, else show the description-container*/}
                 {expanded ? (

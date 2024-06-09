@@ -2,7 +2,7 @@ import React, {createContext, useContext, useState} from 'react';
 
 export interface SliderState {
     featured: number; // 0 for "School", 1 for "Personal"
-    future: number;   // 0 for "Drafts", 1 for "Concepts"
+    other: number;   // 0 for "In Progress", 1 for "Drafts"
 }
 
 interface SliderContextType {
@@ -17,7 +17,7 @@ interface SliderProviderProps {
 }
 
 export const SliderProvider: React.FC<SliderProviderProps> = ({children}) => {
-    const [sliderState, setSliderState] = useState<SliderState>({featured: 0, future: 0});
+    const [sliderState, setSliderState] = useState<SliderState>({featured: 0, other: 0});
 
     // const handleSetSliderState = (newState: Partial<SliderState>) => {
     //     setSliderState(prev => ({...prev, ...newState}));

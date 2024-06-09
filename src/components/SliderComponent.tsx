@@ -4,7 +4,7 @@ import { useSlider, SliderState } from '../contexts/SliderContext.tsx';
 interface SliderComponentProps {
     stateA: string;
     stateB: string;
-    type: keyof SliderState; // "featured" or "future"
+    type: keyof SliderState; // "featured" or "other"
 }
 
 const SliderComponent: React.FC<SliderComponentProps> = ({ stateA, stateB, type }) => {

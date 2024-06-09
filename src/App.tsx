@@ -30,11 +30,11 @@ function App() {
                         <SliderComponent stateA="School" stateB="Personal" type="featured"/>
                         <ProjectsContainer type="featured"/>
                     </div>
-                    <div className="future projects-container">
-                        <h2><strong>Future projects</strong></h2>
+                    <div className="other projects-container">
+                        <h2><strong>Other projects</strong></h2>
 
-                        <SliderComponent stateA="Drafts" stateB="Concepts" type="future"/>
-                        <ProjectsContainer type="future"/>
+                        <SliderComponent stateA="In Progress" stateB="Drafts" type="other"/>
+                        <ProjectsContainer type="other"/>
                     </div>
                 </div>
             </SliderProvider>

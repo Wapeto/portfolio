@@ -4,7 +4,7 @@ import ProjectCardComponent from "./ProjectCardComponent";
 import {Project} from "../types";
 
 interface ProjectsContainerProps {
-    type: keyof SliderState; // "featured" or "future"
+    type: keyof SliderState; // "featured" or "other"
 }
 
 const ProjectsContainer: React.FC<ProjectsContainerProps> = ({type}) => {

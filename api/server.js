@@ -38,10 +38,10 @@ app.get('/api/get-projects', (req, res) => {
         query = stateNum === 0 ?
             "SELECT id, name as title, description, tags, started_date, finished_date, purpose, link, image FROM projects WHERE purpose = 'school'" :
             "SELECT id, name as title, description, tags, started_date, finished_date, purpose, link, image FROM projects WHERE purpose = 'personal'";
-    } else if (type === 'future') {
+    } else if (type === 'other') {
         query = stateNum === 0 ?
-            "SELECT id, name as title, description, tags, started_date, finished_date, purpose, link, image FROM projects WHERE purpose = 'draft'" :
-            "SELECT id, name as title, description, tags, started_date, finished_date, purpose, link, image FROM projects WHERE purpose = 'concept'";
+            "SELECT id, name as title, description, tags, started_date, finished_date, purpose, link, image FROM projects WHERE purpose = 'progress'" :
+            "SELECT id, name as title, description, tags, started_date, finished_date, purpose, link, image FROM projects WHERE purpose = 'draft'";
     }
 
     if (query) {
