@@ -9,6 +9,8 @@ function ContactPage() {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
+    document.documentElement.style.setProperty('--scroll', "0");
+
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
